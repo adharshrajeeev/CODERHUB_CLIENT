@@ -1,8 +1,7 @@
-export const baseUserUrl = "http://localhost:7000/api/"
+export const baseUserUrl = "http://16.16.208.129/api/"
 export const baseAdminUrl = "http://localhost:7000/api/admin"
 
 //USER SIDE URLS===>>>>>>>
-
 export const SIGNUP='/signup'
 export const USER_LOGIN='/login'
 export const ADD_POST='/addPosts'
