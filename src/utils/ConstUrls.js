@@ -1,5 +1,5 @@
-export const baseUserUrl = "http://16.16.208.129/api/"
-export const baseAdminUrl = "http://localhost:7000/api/admin"
+export const baseUserUrl = "https://api.coderhub.cloud/api/"
+export const baseAdminUrl = "http://api.coderhub.cloud/api/admin"
 
 //USER SIDE URLS===>>>>>>>
 export const SIGNUP='/signup'
