@@ -7,7 +7,7 @@ import Message from '../../../components/user/conversations/Message'
 import ChatOnline from '../../../components/user/conversations/ChatOnline'
 import decodeToken from '../../../utils/Services'
 import axios from '../../../utils/axios'
-import { ADD_NEW_CONVERSATION, GET_ALL_CONVERSATIONS, GET_USER_MESSAGES, SEARCH_USER_FOLLOWINGS, SEND_NEW_MESSAGE } from '../../../utils/ConstUrls'
+import { ADD_NEW_CONVERSATION, GET_ALL_CONVERSATIONS, GET_USER_MESSAGES, SEARCH_USER_FOLLOWINGS, SEND_NEW_MESSAGE, socketUrl } from '../../../utils/ConstUrls'
 import {io} from 'socket.io-client'
 import { fetchUserDetails } from "../../../api/UserServices";
 import { Divider } from '@mui/material'
@@ -38,7 +38,7 @@ function Messenger() {
       },[])
       
     useEffect(()=>{
-        socket.current=io("ws://localhost:7000")
+        socket.current=io(socketUrl)
         socket.current.on("getMessage",(data)=>{
             setArrivalMessage({
              sender:data.senderId,

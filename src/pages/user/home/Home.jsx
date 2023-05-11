@@ -7,6 +7,7 @@ import { fetchUserDetails } from "../../../api/UserServices";
 import SkeletonLoading from '../../../components/user/Loading/SkeletonLoading';
 import {io} from 'socket.io-client'
 import { useSelector } from 'react-redux';
+import { socketUrl } from '../../../utils/ConstUrls';
 const LazyPosts = React.lazy(()=>import('../../../components/user/posts/Posts'))
 
 function Home() {
@@ -20,7 +21,7 @@ function Home() {
   },[])
 
   useEffect(()=>{
-    setSocket(io('ws://localhost:7000'))
+    setSocket(io(socketUrl))
   },[])
 
   useEffect(()=>{

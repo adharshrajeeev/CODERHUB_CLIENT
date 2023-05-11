@@ -1,5 +1,7 @@
 export const baseUserUrl = "https://api.coderhub.cloud/api/"
-export const baseAdminUrl = "http://api.coderhub.cloud/api/admin"
+export const baseAdminUrl = "https://api.coderhub.cloud/api/admin"
+
+export const socketUrl = "wss://api.coderhub.cloud"
 
 //USER SIDE URLS===>>>>>>>
 export const SIGNUP='/signup'
