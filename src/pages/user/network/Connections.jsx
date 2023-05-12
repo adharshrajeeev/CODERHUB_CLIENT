@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import SkeletonLoading from '../../../components/user/Loading/SkeletonLoading'
 import { fetchAllConnections } from '../../../api/UserServices';
 import NewNavbar from '../../../components/user/navbar/NewNavbar';
+import NoDataAvailable from '../../../components/user/noDataAvailable/NoDataFound'
 const LazyFriendsLists = React.lazy(() => import('../../../components/user/friendslist/ConnectionsList'))
 
 function Connections() {
@@ -27,12 +28,12 @@ function Connections() {
 
   useEffect(() => {
     listAllUsers();
-  }, [])
+  }, [connections])
 
 
   return (
     <>
-      <NewNavbar />
+     <NewNavbar/>
       <div style={{ display: "flex" }}>
         <LeftBar />
         <div style={{ flex: 8 }}>
@@ -40,14 +41,18 @@ function Connections() {
             <Box sx={{ flexGrow: 1 }}>
               <Grid container spacing={2}>
                 {
-                  connections?.map(users => (
-                    <Grid item xs={4}>
-                      <React.Suspense fallback={<SkeletonLoading />}>
-                        <LazyFriendsLists users={users} key={users._id} listAllUsers={listAllUsers} />
-                      </React.Suspense>
-                    </Grid>
-
-                  ))
+                 connections && connections.length > 0 ? 
+                 connections?.map(users => (
+                   <Grid item xs={4}>
+                     <React.Suspense fallback={<SkeletonLoading />}>
+                       <LazyFriendsLists users={users} key={users._id} listAllUsers={listAllUsers} />
+                     </React.Suspense>
+                   </Grid>
+                 ))
+                 :
+                 <Grid item xs={12}>
+                   <NoDataAvailable data={"Connections"}/>
+                 </Grid>
                 }
               </Grid>
             </Box>
