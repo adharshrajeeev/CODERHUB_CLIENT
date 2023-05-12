@@ -72,7 +72,6 @@ function Profile() {
   const getUserPosts = async () => {
     try {
       const response = await fetchUserPosts(userId)
-      console.log(response.data.posts,"userposts")
       dispatch(setPosts(response.data.posts))
     } catch (err) {
       console.log(err)
@@ -143,7 +142,7 @@ function Profile() {
   return (
 
     <div>
-      <NewNavbar />
+      <NewNavbar/>
       <div style={{ display: "flex" }}>
         <LeftBar />
         <div style={{ flex: 8 }}>
@@ -274,7 +273,7 @@ function Profile() {
                 </div>
                 <div className='userPosts'>
 
-                  {userPosts.map(post => (
+                  {userPosts?.map(post => (
                     <Post post={post} key={post._id} />
                   ))}
                 </div>
