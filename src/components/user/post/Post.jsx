@@ -92,7 +92,7 @@ const Post = ({ post, loading,socket,user }) => {
                 </div>
               </div>
               {/* <PostMenuButton post={post} postedUser={post.postedUser._id}/> */}
-              <PostMenuButton postId={post._id} postedUserId={post.postedUser._id} userId={userId} content={post.content} postImage={post?.image?.url} />
+              <PostMenuButton postId={post._id} postedUserId={post.postedUser._id} userId={userId} content={post.content} postImage={post?.image?.url} postVideo={ post?.videoUrl}/>
             </div>
             <div className="content">
               <p>{post.content}</p>
@@ -118,7 +118,7 @@ const Post = ({ post, loading,socket,user }) => {
               <div className="item">
                 <RWebShare data={{
                   text: `User Post`,
-                  url: `http://localhost:3000/user-profile/${post?.postedUser?._id}`,
+                  url: `https://www.coderhub.cloud/user-profile/${post?.postedUser?._id}`,
                   title: `${post.postedUser?.userName}s Post`,
                 }}
                   onClick={() => console.log("shared successfully!")}>
