@@ -18,7 +18,7 @@ export const isValidateGender = (gender)=>{
     return /^(male|female|other)$/i.test(gender);
 }
 
-export const isValidatePassword = (password) =>{
-    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}$/;
+export const isValidatePassword = (password) => {
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[a-zA-Z\d@$!%*?&]{8,}$/;
     return regex.test(password);
 }
